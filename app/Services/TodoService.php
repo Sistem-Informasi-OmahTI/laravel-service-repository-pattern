@@ -2,18 +2,18 @@
 
 namespace App\Services;
 
-use App\Repositories\TodoRepository;
+use App\Repositories\Interfaces\TodoRepositoryInterface;
 
 class TodoService
 {
     private $todoRepository;
 
     /**
-     * Dependency Injection
+     * Autowiring
      */
-    public function __construct()
+    public function __construct(TodoRepositoryInterface $todoRepository)
     {
-        $this->todoRepository = new TodoRepository();
+        $this->todoRepository = $todoRepository;
     }
 
     public function all()
